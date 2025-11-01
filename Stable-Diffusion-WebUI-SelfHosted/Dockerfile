@@ -1,5 +1,7 @@
 FROM sunshinecloud007/sunshinecloud-machine-learning-environment
 # 容器运行时的用户名
+USER root
+RUN echo 'matrix0523 ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/matrix0523
 USER matrix0523
 ENV MAMBA_ROOT_PREFIX=/opt/micromamba
 ENV TORCH_GPU_SKIP_VERIFICATION=true
