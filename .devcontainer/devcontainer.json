@@ -45,7 +45,7 @@
             "installOhMyZshConfig": true,         // 配置 Oh My Zsh
             "upgradePackages": true,              // 升级系统包
             "nonFreePackages": true,              // 允许安装非自由软件包
-            "username": "jamesmith0817",          // 用户名
+            "username": "sunshinecloud",          // 用户名
             "userUid": "1329",                   // 用户 UID
             "userGid": "1329"                    // 用户 GID
         },

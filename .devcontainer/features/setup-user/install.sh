@@ -28,7 +28,7 @@
 #-------------------------------------------------------------------------------------------------------------
 
 # 设置默认用户名（从 devcontainer.json 的 common-utils 配置）
-USERNAME=${USERNAME:-"matrix0523"}
+USERNAME=${USERNAME:-"sunshinecloud"}
 
 # 启用详细输出和严格错误处理
 set -eux
