@@ -14,7 +14,7 @@ ENV HOMEBREW_CACHE=/SunshineCloud/Homebrew/cache
 ENV LANG=zh_CN.UTF-8
 ENV LANGUAGE=zh_CN:en_US
 ENV LC_ALL=zh_CN.UTF-8
-
+USER root
 # Install all packages in a single layer to reduce image size
 RUN apt-get update && apt-get -y install --no-install-recommends ${CUSTOM_PACKAGE_LIST} && \
     # Install Distrobox dependencies and extra packages

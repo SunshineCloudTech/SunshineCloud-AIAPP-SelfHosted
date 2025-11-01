@@ -1,18 +1,18 @@
-name: Text-Generation-WebUI-SelfHosted
+name: Stable-Diffusion-WebUI-SelfHosted
 on:
-  push:
-    branches:
-      - main  
-  # workflow_run:
-  #   workflows: ["Compress Step 3 Image"]
-  #   types:
-  #     - completed
+  # push:
   #   branches:
-  #     - main
+  #     - main  
+  workflow_run:
+    workflows: ["Stable-Diffusion-Fooocus-SelfHosted"]
+    types:
+      - completed
+    branches:
+      - main
   workflow_dispatch: # Allow manual triggering
 
 jobs:
-  Build-TextGen-WebUI-SelfHosted:
+  Build-SDWEBUI-SelfHosted:
     runs-on: ubuntu-latest
     steps:
         - name: Checkout repository
@@ -59,13 +59,13 @@ jobs:
         - name: Build and push
           uses: docker/build-push-action@v6
           with:
-            context: ./Text-Generation-WebUI-SelfHosted/
+            context: ./Stable-Diffusion-WebUI-SelfHosted/
             platforms: linux/amd64
             push: true
             load: false
             tags: |
-              sunshinecloud007/sunshinecloud-text-generation-webui-selfhosted:latest
-              sunshinecloud007/sunshinecloud-text-generation-webui-selfhosted:latest-${{ github.sha }}
+              sunshinecloud007/sunshinecloud-stable-diffusion-webui-selfhosted:latest
+              sunshinecloud007/sunshinecloud-stable-diffusion-webui-selfhosted:latest-${{ github.sha }}
 
         - name: Print Disk Usage
           run: |

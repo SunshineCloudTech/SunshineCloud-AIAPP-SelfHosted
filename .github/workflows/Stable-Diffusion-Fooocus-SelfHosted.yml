@@ -1,18 +1,18 @@
-name: Stable-Diffusion-WebUI-SelfHosted
+name: Stable-Diffusion-Fooocus-SelfHosted
 on:
-  push:
-    branches:
-      - main  
-  # workflow_run:
-  #   workflows: ["Compress Step 3 Image"]
-  #   types:
-  #     - completed
+  # push:
   #   branches:
-  #     - main
+  #     - main  
+  workflow_run:
+    workflows: ["Stable-Diffusion-ComfyUI-SelfHosted"]
+    types:
+      - completed
+    branches:
+      - main
   workflow_dispatch: # Allow manual triggering
 
 jobs:
-  Build-SDWEBUI-SelfHosted:
+  Build-Fooocus-SelfHosted:
     runs-on: ubuntu-latest
     steps:
         - name: Checkout repository
@@ -47,7 +47,7 @@ jobs:
           uses: actions/setup-node@v4
           with:
             node-version: lts/*
-        - run: sudo npm install -g @devcontainers/cli
+        - run: sudo npm install -g @devcontainers/cli && ls .
 
         - name: Login to Docker Hub
           uses: docker/login-action@v3
@@ -59,13 +59,13 @@ jobs:
         - name: Build and push
           uses: docker/build-push-action@v6
           with:
-            context: ./Stable-Diffusion-WebUI-SelfHosted/
+            context: ./Stable-Diffusion-Fooocus-SelfHosted/
             platforms: linux/amd64
             push: true
             load: false
             tags: |
-              sunshinecloud007/sunshinecloud-stable-diffusion-webui-selfhosted:latest
-              sunshinecloud007/sunshinecloud-stable-diffusion-webui-selfhosted:latest-${{ github.sha }}
+              sunshinecloud007/sunshinecloud-stable-diffusion-fooocus-selfhosted:latest
+              sunshinecloud007/sunshinecloud-stable-diffusion-fooocus-selfhosted:latest-${{ github.sha }}
 
         - name: Print Disk Usage
           run: |
