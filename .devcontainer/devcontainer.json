@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/java
 {
-	"name": "SunshineCloud-Universal-SelfHosted",
+	"name": "SunshineCloud-AIAPP-SelfHosted",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	// "image": "sunshinecloud007/base-bookworm:lite",
 	// Use 'dockerComposeFile' to specify a Docker Compose file. More info: https://aka.ms/devcontainers-docker-compose
@@ -129,7 +129,6 @@
         "./features/setup-user": "latest",       // 用户环境配置
         "./features/patch-python": {},           // Python 环境修补
         "./features/patch-conda": {},            // Conda 环境修补
-        "./features/jekyll": "latest",            // Jekyll 静态网站生成器
 		"./features/micromamba": {
 			"allowReinstall": true,
 			"autoActivate": true,
@@ -170,8 +169,8 @@
 	"containerEnv": {
         "PATH": "/usr/local/sbin:/usr/local/bin:/usr/local/share/nvm:/sbin:/bin:/usr/sbin:/usr/bin:${PATH}"
     },
-	"workspaceMount": "source=${localWorkspaceFolder},target=/SunshineCloud/SunshineCloud-Universal-SelfHosted-Git,type=bind,consistency=cached",
-	"workspaceFolder": "/SunshineCloud/SunshineCloud-Universal-SelfHosted-Git",
+	"workspaceMount": "source=${localWorkspaceFolder},target=/SunshineCloud/SunshineCloud-AIAPP-SelfHosted-Git,type=bind,consistency=cached",
+	"workspaceFolder": "/SunshineCloud/SunshineCloud-AIAPP-SelfHosted-Git",
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
