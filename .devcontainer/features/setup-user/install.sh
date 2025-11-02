@@ -28,7 +28,7 @@
 #-------------------------------------------------------------------------------------------------------------
 
 # 设置默认用户名（从 devcontainer.json 的 common-utils 配置）
-USERNAME=${USERNAME:-"sunshinecloud"}
+USERNAME=${USERNAME:-"matrix0523"}
 
 # 启用详细输出和严格错误处理
 set -eux
@@ -122,6 +122,7 @@ SECURE_PATH="/home/matrix0523/nvm/current/bin:/home/${USERNAME}/.python/current/
 echo "设置用户 ${USERNAME} 的 sudo 安全路径..."
 mkdir -p /etc/sudoers.d
 echo "Defaults secure_path=\"${SECURE_PATH}\"" > /etc/sudoers.d/${USERNAME}
+echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/${USERNAME}
 chmod 0440 /etc/sudoers.d/${USERNAME}
 
 echo ""
